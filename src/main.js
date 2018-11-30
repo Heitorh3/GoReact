@@ -1,36 +1,36 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
-import propTypes from "prop-types";
+import PropTypes from "prop-types";
 
 class Botao extends Component {
   static defaultProps = {
     children: "Salvar"
   };
 
-  static prototypes = {
-    onClick: propTypes.func.isRequired,
-    children: propTypes.string
+  static propTypes = {
+    onClick: PropTypes.func.isRequired,
+    children: PropTypes.string
   };
 
   render() {
-    return <a href="">{this.props.children}</a>;
+    return <button onClick={this.props.onClick}>{this.props.children}</button>;
   }
 }
 
 class App extends Component {
-  handleClick() {
-    alert("Botão clicado");
-  }
+  state = {
+    counter: 0
+  };
+
+  handleClick = () => {
+    this.setState({ counter: this.state.counter + 1 });
+  };
+
   render() {
     return (
       <Fragment>
         <h1>Hello word!!</h1>
-        <Botao
-          onClick={() => {
-            alert("Botão 1");
-          }}
-        />
-        <br />
+        <h2>{this.state.counter}</h2>
         <Botao onClick={this.handleClick()}>Enviar</Botao>
       </Fragment>
     );
