@@ -31,7 +31,7 @@ class App extends Component {
       <Fragment>
         <h1>Hello word!!</h1>
         <h2>{this.state.counter}</h2>
-        <Botao onClick={this.handleClick()}>Enviar</Botao>
+        <Botao onClick={this.handleClick}>Enviar</Botao>
       </Fragment>
     );
   }
