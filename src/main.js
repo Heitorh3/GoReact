@@ -3,19 +3,19 @@ import { render } from "react-dom";
 import propTypes from "prop-types";
 
 class Botao extends Component {
+  static defaultProps = {
+    children: "Salvar"
+  };
+
+  static prototypes = {
+    onClick: propTypes.func.isRequired,
+    children: propTypes.string
+  };
+
   render() {
     return <a href="">{this.props.children}</a>;
   }
 }
-
-Botao.defaultProps = {
-  children: "Salvar"
-};
-
-Botao.prototypes = {
-  onClick: propTypes.func.isRequired,
-  children: propTypes.string
-};
 
 class App extends Component {
   handleClick() {
