@@ -1,15 +1,21 @@
 import React, { Component, Fragment } from "react";
 import { render } from "react-dom";
+import propTypes from "prop-types";
 
 class Botao extends Component {
   render() {
-    return (
-      <a href="" onClick={this.handleClick()}>
-        {this.props.title}
-      </a>
-    );
+    return <a href="">{this.props.children}</a>;
   }
 }
+
+Botao.defaultProps = {
+  children: "Salvar"
+};
+
+Botao.prototypes = {
+  onClick: propTypes.func.isRequired,
+  children: propTypes.string
+};
 
 class App extends Component {
   handleClick() {
@@ -19,7 +25,13 @@ class App extends Component {
     return (
       <Fragment>
         <h1>Hello word!!</h1>
-        <Botao title="enviar" onClick={this.handleClick()} />
+        <Botao
+          onClick={() => {
+            alert("Botão 1");
+          }}
+        />
+        <br />
+        <Botao onClick={this.handleClick()}>Enviar</Botao>
       </Fragment>
     );
   }
